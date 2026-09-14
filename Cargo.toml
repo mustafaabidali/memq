@@ -45,7 +45,7 @@ libc = "0.2"
 regex = "1"
 rusqlite = { version = "0.37", features = ["bundled", "serde_json"] }
 serde = { version = "1", features = ["derive"] }
-serde_jcs = "0.1"
+serde_jcs = "0.2"
 serde_json = "1"
 sha2 = "0.10"
 tiktoken-rs = "0.7"
