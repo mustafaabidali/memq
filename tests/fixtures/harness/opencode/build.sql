@@ -1,0 +1,3 @@
+CREATE TABLE session(id TEXT PRIMARY KEY,directory TEXT NOT NULL,version TEXT NOT NULL,time_updated INTEGER NOT NULL);
+CREATE TABLE message(id TEXT PRIMARY KEY,session_id TEXT NOT NULL,time_updated INTEGER NOT NULL,data TEXT NOT NULL);
+CREATE TABLE part(id TEXT PRIMARY KEY,session_id TEXT NOT NULL,message_id TEXT NOT NULL,time_created INTEGER NOT NULL,time_updated INTEGER NOT NULL,data TEXT NOT NULL);

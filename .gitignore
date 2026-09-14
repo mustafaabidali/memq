@@ -1,0 +1,32 @@
+/target/
+/dist/
+/.cache/
+/.venv/
+/.omo/
+/.omp/
+/.codex/
+/.agents/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+*.py[cod]
+
+# Private planning and research stay outside the public source snapshot.
+/.specify/
+/CONTEXT.md
+/specs/
+/docs/research/
+/docs/design/
+/docs/reviews/
+/docs/decisions.md
+/docs/architecture.md
+/docs/measurements/
+
+# Shared configuration, notes, and tombstones belong in Git.
+# Only local derived state is excluded.
+/.memq/cache/
+/.memq/state/
+/.memq/tmp/

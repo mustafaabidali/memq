@@ -1,0 +1,20 @@
+name: Set up build tools
+description: Use the pinned Rust toolchain and a supported Linux C/C++ compiler.
+
+runs:
+  using: composite
+  steps:
+    - name: Install the checked-in Rust toolchain
+      shell: bash
+      run: rustup show active-toolchain
+    - name: Set up GCC 12 on Linux
+      if: runner.os == 'Linux'
+      shell: bash
+      run: |
+        if ! command -v gcc-12 >/dev/null || ! command -v g++-12 >/dev/null; then
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends gcc-12 g++-12
+        fi
+        gcc-12 --version
+        g++-12 --version
+        printf '%s\n' 'CC=gcc-12' 'CXX=g++-12' >> "$GITHUB_ENV"

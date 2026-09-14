@@ -1,0 +1,108 @@
+{
+  "fixture": "Synthetic requirement-discovery records; no live provider observations.",
+  "next": [
+    {
+      "id": "facebook-provider",
+      "status": "blocked",
+      "title": "Facebook provider readiness",
+      "reason": "Facebook stays disabled until app configuration, email permission, credentials, redirect allowlist, and an approved execution plan are evidenced. Local labels and flags do not establish external readiness.",
+      "spec": "specs/design/2026-08-11-deferred-auth-providers.md",
+      "plan": "facebook-plan",
+      "handoff": null,
+      "branch": null,
+      "files": ["apps/web/src/lib/auth/redirects.ts"]
+    },
+    {
+      "id": "callback-inspection",
+      "status": "pending",
+      "title": "Inspect the existing OAuth callback before changing provider visibility",
+      "reason": "Next recorded action: inspect code exchange, locale redirect, session persistence and allowed destinations. The provider-readiness blocker remains open.",
+      "spec": "oauth-existing",
+      "plan": "facebook-plan",
+      "handoff": null,
+      "branch": null,
+      "files": ["apps/web/src/app/[locale]/(auth)/auth/callback/route.ts"]
+    },
+    {
+      "id": "cookie-redirect-work",
+      "status": "pending",
+      "title": "Cookie and redirect behavior",
+      "reason": "Pending cookie and redirect work must be considered for session persistence and sign-out. Existing Google request interception is not a live login check.",
+      "spec": "oauth-existing",
+      "plan": null,
+      "handoff": null,
+      "branch": null,
+      "files": ["apps/web/tests/auth.spec.ts"]
+    }
+  ],
+  "specs": [
+    {
+      "id": "oauth-existing",
+      "status": "approved",
+      "title": "Existing OAuth initiation and callback",
+      "text": "The sign-in flow already calls signInWithOAuth for the selected provider. The callback exchanges the code, runs post-login handling, and redirects to the locale portal. Reuse this path and verify both successful and rejected callbacks.",
+      "files": ["apps/web/src/components/auth/sign-in-flow.tsx", "apps/web/src/app/[locale]/(auth)/auth/callback/route.ts", "apps/web/src/lib/auth/redirects.ts"]
+    },
+    {
+      "id": "language-browser",
+      "status": "approved",
+      "title": "Arabic, English and Mobile Safari acceptance",
+      "text": "Facebook labels already exist in Arabic and English. Preserve translated success and error states, RTL layout, locale redirects, session persistence and sign-out. Mobile Safari is a required acceptance surface and remains unverified in this synthetic fixture.",
+      "files": ["apps/web/src/components/auth/oauth-button-group.tsx", "apps/web/messages/ar.json", "apps/web/messages/en.json"]
+    },
+    {
+      "id": "verification-required",
+      "status": "approved",
+      "title": "Facebook completion evidence",
+      "text": "Before claiming completion, record command, tested revision, environment and observed result for success, cancellation, denied permissions, missing email, existing account linking, session persistence, sign-out, valid and invalid callbacks, allowed redirects and merchant approval boundaries. Provider readiness and Mobile Safari checks remain required. A mocked OAuth request or a hidden button is not proof of a working Facebook login.",
+      "files": ["apps/web/tests/auth.spec.ts", "apps/web/src/lib/auth/post-login.ts"]
+    }
+  ],
+  "adrs": [
+    {
+      "id": "account-linking",
+      "status": "accepted",
+      "decider": "owner",
+      "title": "Account linking and merchant ownership",
+      "reason": "Phone matching precedes email matching. An email match never grants merchant approval. Existing accounts require explicit linking behavior; a provider login alone cannot authorize merchant ownership. No new schema is presumed.",
+      "files": ["apps/web/src/lib/auth/post-login.ts"]
+    },
+    {
+      "id": "legacy-account-rule",
+      "status": "superseded by 0009",
+      "decider": "owner",
+      "reason": "Retained historical rule; see account-linking for the applicable accepted account constraints.",
+      "file": null
+    },
+    {
+      "id": "pending-provider-decision",
+      "status": "proposed",
+      "decider": "owner",
+      "reason": "Execution-plan approval is pending. Acceptance would resolve this decision only; it would not demonstrate live provider configuration or working implementation.",
+      "files": ["apps/web/src/lib/auth/redirects.ts"]
+    }
+  ],
+  "plans": [
+    {
+      "id": "facebook-plan",
+      "status": "authored_awaiting_founder_signoff",
+      "decider": "owner",
+      "reason": "Inspect current initiation, callback and account paths. Reconcile provider prerequisites before enabling visibility. Preserve account, language and browser requirements.",
+      "depends_on": ["facebook-provider", "account-linking", "language-browser", "verification-required"],
+      "supersedes": null,
+      "superseded_by": null,
+      "superseded_in_part_by": null,
+      "branch": null,
+      "file": "specs/design/2026-08-11-deferred-auth-providers.md"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "verification-gap",
+      "status": "open",
+      "reason": "No live Facebook provider login, external configuration or Mobile Safari verification has been exercised. The fixture contains only synthetic source evidence. Required checks are unverified, never passing by omission.",
+      "plan": "facebook-plan",
+      "file": "apps/web/tests/auth.spec.ts"
+    }
+  ]
+}

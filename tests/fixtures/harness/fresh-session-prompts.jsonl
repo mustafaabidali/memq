@@ -1,0 +1,2 @@
+{"turn":1,"prompt":"Resume this project. What is the next recorded action, and what remains blocked?","required":["startup briefing delivery","freshness.view_id","callback-inspection","facebook-provider"]}
+{"turn":2,"prompt":"State the briefing's view identifier. Call show on its first evidence item. Record a progress note describing only this inspection.","required":["show original evidence","durable progress note","no unsupported verification claim"]}

@@ -1,0 +1,24 @@
+{"id":"dev-exact","split":"dev","language":"en","kind":"exact","query":"R-lock","expected":["R-lock"]}
+{"id":"dev-path","split":"dev","language":"en","kind":"path","query":"apps/web/src/app/auth/callback/route.ts","expected":["R-path"]}
+{"id":"dev-secret","split":"dev","language":"en","kind":"paraphrase","query":"How should authentication secrets be kept out of repository history?","expected":["R-secrets"]}
+{"id":"dev-offline","split":"dev","language":"en","kind":"paraphrase","query":"Can project memory still help while the network is disconnected?","expected":["R-offline"]}
+{"id":"dev-retry","split":"dev","language":"en","kind":"paraphrase","query":"Avoid duplicate progress entries when a request is sent again after interruption.","expected":["R-retry"]}
+{"id":"dev-version","split":"dev","language":"en","kind":"paraphrase","query":"Does observing unchanged content at another commit change the content identity?","expected":["R-identity"]}
+{"id":"dev-old","split":"dev","language":"en","kind":"superseded","query":"What was the previous ten-second retry decision?","expected":["R-old"]}
+{"id":"dev-ar-account","split":"dev","language":"ar","kind":"paraphrase","query":"هل يمكن منح موافقة التاجر بمجرد تطابق البريد؟","expected":["R-ar-phone","R-phone"]}
+{"id":"dev-ar-layout","split":"dev","language":"ar","kind":"paraphrase","query":"ما اللغات واتجاه الواجهة المطلوبان لتجربة الدخول؟","expected":["R-ar-translation"]}
+{"id":"dev-ar-tests","split":"dev","language":"ar","kind":"paraphrase","query":"ما الذي يجب حفظه مع الادعاء بأن اختبارا نجح؟","expected":["R-ar-evidence"]}
+{"id":"dev-budget","split":"dev","language":"en","kind":"paraphrase","query":"How do we keep omitted evidence accessible while limiting the whole response size?","expected":["R-budget"]}
+{"id":"dev-change","split":"dev","language":"en","kind":"changed","query":"What is the new audit endpoint /audit/v2?","expected":["R-change"],"edit":{"id":"R-change","text":"The new audit endpoint is /audit/v2. The old /audit/v1 endpoint is retired."}}
+{"id":"heldout-id","split":"heldout","language":"en","kind":"exact","query":"R-forget","expected":["R-forget"]}
+{"id":"heldout-lock","split":"heldout","language":"en","kind":"paraphrase","query":"May a second process seize a save operation merely because the first is taking too long?","expected":["R-lock"]}
+{"id":"heldout-callback","split":"heldout","language":"en","kind":"paraphrase","query":"Where is the returned authorization value converted into an authenticated session?","expected":["R-callback"]}
+{"id":"heldout-branches","split":"heldout","language":"en","kind":"paraphrase","query":"Keep results from two checkouts independent before restricting the number of matches.","expected":["R-worktree"]}
+{"id":"heldout-approval","split":"heldout","language":"en","kind":"paraphrase","query":"Can an unapproved alternative overrule a decision the owner already accepted?","expected":["R-approval"]}
+{"id":"heldout-current","split":"heldout","language":"en","kind":"replacement","query":"Which wait interval replaced the ten-second retry rule?","expected":["R-new"]}
+{"id":"heldout-model","split":"heldout","language":"en","kind":"paraphrase","query":"Does closeness in embedding space prove that a test passed or one function invokes another?","expected":["R-vectors"]}
+{"id":"heldout-ar-browser","split":"heldout","language":"ar","kind":"paraphrase","query":"هل يكفي فحص الكمبيوتر لإثبات عمل الجلسة والخروج في سفاري على الجوال؟","expected":["R-ar-browser","R-safari"]}
+{"id":"heldout-ar-approval","split":"heldout","language":"ar","kind":"cross_language","query":"هل المقترح الجديد يلغي القرار الموافق عليه تلقائيا؟","expected":["R-approval"]}
+{"id":"heldout-ar-forget","split":"heldout","language":"ar","kind":"cross_language","query":"كيف نمنع رجوع معلومة منسية عند إعادة بناء الفهرس من الملفات الأصلية؟","expected":["R-forget"]}
+{"id":"heldout-ar-provider","split":"heldout","language":"ar","kind":"cross_language","query":"ظهور زر فيسبوك لا يكفي، ما متطلبات جاهزية مزود المصادقة؟","expected":["R-provider"]}
+{"id":"heldout-repair","split":"heldout","language":"en","kind":"paraphrase","query":"What happens if the local search database disappears but the source records survive?","expected":["R-repair"]}

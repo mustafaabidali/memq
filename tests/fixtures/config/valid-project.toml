@@ -1,0 +1,102 @@
+format = 1
+project_id = "01ARZ3NDEKTSV4RRFFQ69G5FAV" # Synthetic; fixture installer retains memq init's generated ID.
+
+[[source]]
+id = "notes"
+kind = "memq-notes"
+path = ".memq/notes"
+
+[[source]]
+id = "manifest-next"
+kind = "json-records"
+path = "specs/manifest.json"
+collection = "next"
+id_field = "id"
+references = ["plan", "spec", "handoff", "branch", "files"]
+[source.policy]
+status_field = "status"
+blocked_values = ["blocked"]
+active_values = ["pending", "in_progress", "open", "paused", "draft"]
+reason_field = "reason"
+
+[[source]]
+id = "manifest-specs"
+kind = "json-records"
+path = "specs/manifest.json"
+collection = "specs"
+id_field = "id"
+references = ["file", "files"]
+[source.policy]
+status_field = "status"
+accepted_values = ["approved"]
+
+[[source]]
+id = "manifest-adrs"
+kind = "json-records"
+path = "specs/manifest.json"
+collection = "adrs"
+id_field = "id"
+references = ["file", "files"]
+[source.policy]
+status_field = "status"
+accepted_values = ["accepted"]
+proposed_values = ["proposed"]
+superseded_values = ["superseded by 0009"]
+decider_field = "decider"
+approvers = ["owner", "maintainer"]
+require_attribution = true
+supersedes_field = "supersedes"
+reason_field = "reason"
+
+[[source]]
+id = "manifest-plans"
+kind = "json-records"
+path = "specs/manifest.json"
+collection = "plans"
+id_field = "id"
+references = ["file", "depends_on", "supersedes", "superseded_by", "superseded_in_part_by", "branch", "files"]
+[source.policy]
+status_field = "status"
+accepted_values = ["approved", "completed"]
+proposed_values = ["draft", "authored_awaiting_founder_signoff"]
+superseded_values = ["superseded"]
+supersedes_field = "supersedes"
+superseded_by_field = "superseded_by"
+reason_field = "reason"
+decider_field = "decider"
+approvers = ["owner", "maintainer"]
+require_attribution = true
+
+[[source]]
+id = "manifest-reviews"
+kind = "json-records"
+path = "specs/manifest.json"
+collection = "reviews"
+id_field = "id"
+references = ["file", "plan", "files"]
+[source.policy]
+status_field = "status"
+reason_field = "reason"
+
+[[source]]
+id = "decisions"
+kind = "markdown-table"
+path = "docs/decisions.md"
+id_column = "Id"
+[source.policy]
+status_field = "Status"
+accepted_values = ["approved"]
+proposed_values = ["proposed"]
+withdrawn_values = ["withdrawn"]
+supersedes_field = "Replaces"
+reason_field = "Reason"
+
+[[source]]
+id = "design-deferred-auth"
+kind = "markdown"
+path = "specs/design/2026-08-11-deferred-auth-providers.md"
+
+[[source]]
+id = "arabic"
+kind = "markdown"
+path = "docs/arabic.md"

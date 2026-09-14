@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest a way to make memq more useful.
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What are you trying to do?
+      description: Describe the task and what makes it hard today.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What should memq do?
+      description: Give a small example of how the feature would help.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or related tools
+      description: Mention other ways you tried to solve this, if any.

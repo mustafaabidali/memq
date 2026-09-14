@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a problem you can repeat.
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Your setup
+      description: Include your memq, Git, and agent versions, plus your operating system.
+      placeholder: Mention Git worktrees or remotes if they matter for this bug.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to repeat the bug
+      description: Use a small example with made-up data. Remove passwords, private chats, personal paths, and session IDs.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened?
+      description: Include the output after removing private details. Keep any message about missing or old data.
+    validations:
+      required: true
