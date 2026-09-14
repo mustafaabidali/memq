@@ -50,7 +50,7 @@ serde_json = "1"
 sha2 = "0.10"
 tiktoken-rs = "0.7"
 toml = "0.9"
-ulid = { version = "1", features = ["serde"] }
+ulid = { version = "3", features = ["serde"] }
 unicode-normalization = "0.1"
 usearch = "2"
 walkdir = "2"
